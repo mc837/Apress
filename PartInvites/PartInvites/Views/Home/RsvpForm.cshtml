@@ -1,0 +1,35 @@
+﻿@using System.Web.UI.WebControls
+@model PartInvites.Models.GuestResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Stylesheets/Site.css"/>
+    <title>RsvpForm</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+            <p> Your Name: @Html.TextBoxFor(x => x.Name)</p>
+            <p> Your Email: @Html.TextBoxFor(x => x.Email)</p>
+            <p> Your Phone No: @Html.TextBoxFor(x => x.Phone)</p>
+            <p>
+                Will You Attend? @Html.DropDownListFor(x => x.WillAttend, new []
+                                 {
+                                     new SelectListItem(){Text = "Count me in", Value = bool.TrueString},
+                                     new SelectListItem(){Text = "I'm washing my hair", Value = bool.FalseString}
+                                 }, "Choose an option")
+            </p>
+            <input type="submit" value="Submit RSVP"/>
+        }
+    </div>
+</body>
+</html>

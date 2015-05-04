@@ -1,0 +1,26 @@
+﻿@model PartInvites.Models.GuestResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Thank You</title>
+</head>
+<body>
+    <div>
+        Thanks @Model.Name
+        @if (Model.WillAttend == true)
+        {
+            <p>"We'll see you there"</p>
+        }
+        else
+        {
+            <p>"Hope you can make it next time"</p>
+        }
+    </div>
+</body>
+</html>
